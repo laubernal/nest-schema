@@ -1,15 +1,15 @@
 import { AggregateRoot } from 'Shared/Domain/Entities/AggregateRoot';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { Name } from 'Shared/Domain/Vo/Name.vo';
 import { Url } from 'Shared/Domain/Vo/Url.vo';
 
 export class Module extends AggregateRoot {
   public static build(name: Name, urlList: Url[]): Module {
-    return new Module(ID.generate(), name, urlList, new Date(), new Date());
+    return new Module(Id.generate(), name, urlList, new Date(), new Date());
   }
 
   constructor(
-    _id: ID,
+    _id: Id,
     private _name: Name,
     private _urlList: Url[],
     _createdAt: Date,

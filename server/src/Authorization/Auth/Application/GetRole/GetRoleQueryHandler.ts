@@ -3,17 +3,16 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { Role } from 'Authorization/Auth/Domain/Entity/Role';
 import { RoleFilter } from 'Authorization/Auth/Domain/Filter/RoleFilter';
 import { IRoleRepository } from 'Authorization/Auth/Domain/Repository/IRoleRepository';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { GetRoleQuery } from './GetRoleQuery';
 import { GetRoleResponse } from './GetRoleResponse';
 
 @QueryHandler(GetRoleQuery)
 export class GetRoleQueryHandler implements IQueryHandler {
-  constructor() // @Inject('') private readonly repository: IRoleRepository
-  {}
+  constructor() {} // @Inject('') private readonly repository: IRoleRepository
 
   public async execute(query: GetRoleQuery): Promise<GetRoleResponse> {
-    const roleId = new ID(query.id);
+    const roleId = new Id(query.id);
 
     // const role = await this.findRole(roleId);
 

@@ -4,7 +4,7 @@ import { Permission } from 'Authorization/Permission/Domain/Entity/Permission';
 import { NotAllowedError } from 'Authorization/Permission/Domain/Error/NotAllowedError';
 import { PermissionFilter } from 'Authorization/Permission/Domain/Filter/PermissionFilter';
 import { IPermissionRepository } from 'Authorization/Permission/Domain/Repository/IPermissionRepository';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { CheckPermissionQuery } from './CheckPermissionQuery';
 import { CheckPermissionResponse } from './CheckPermissionResponse';
 
@@ -14,8 +14,8 @@ export class CheckPermissionQueryHandler implements IQueryHandler {
 
   public async execute(query: CheckPermissionQuery): Promise<CheckPermissionResponse> {
     try {
-      const tenantId = new ID(query.tenantId);
-      const moduleId = new ID(query.moduleId);
+      const tenantId = new Id(query.tenantId);
+      const moduleId = new Id(query.moduleId);
 
       // const permission = await this.findPermission(tenantId, moduleId);
 

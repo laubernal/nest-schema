@@ -1,13 +1,13 @@
-import { ID } from '../Vo/Id.vo';
+import { Id } from '../Vo/Id.vo';
 
 export abstract class BaseEntity {
   protected constructor(
-    private _id: ID,
+    private _id: Id,
     private _dateCreated?: Date,
     private _dateUpdated?: Date
   ) {}
 
-  public id(): ID {
+  public id(): Id {
     return this._id;
   }
 

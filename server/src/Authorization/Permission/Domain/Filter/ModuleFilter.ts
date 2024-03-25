@@ -1,5 +1,5 @@
 import { Filter } from 'Shared/Domain/Entities/Filter';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 
 export class ModuleFilter extends Filter {
   public static MODULE_ID_FILTER = 'moduleId';
@@ -10,7 +10,7 @@ export class ModuleFilter extends Filter {
 
   protected data: Map<string, any> = new Map();
 
-  public withModuleId(id: ID): this {
+  public withModuleId(id: Id): this {
     this.data.set(ModuleFilter.MODULE_ID_FILTER, id);
     return this;
   }

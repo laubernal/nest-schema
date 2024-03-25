@@ -1,5 +1,5 @@
 import { Filter } from 'Shared/Domain/Entities/Filter';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { RoleType } from 'Shared/Domain/Vo/RoleType';
 
 export class RoleFilter extends Filter {
@@ -12,7 +12,7 @@ export class RoleFilter extends Filter {
 
   protected data: Map<string, any> = new Map();
 
-  public withRoleId(id: ID): this {
+  public withRoleId(id: Id): this {
     this.data.set(RoleFilter.ROLE_ID_FILTER, id);
     return this;
   }

@@ -1,17 +1,17 @@
 import { AggregateRoot as NestAggregate, IEvent } from '@nestjs/cqrs';
 import { AppEventBus } from 'Shared/Domain/Entities/AppEventBus';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 
 export abstract class AggregateRoot extends NestAggregate {
   protected constructor(
-    private _id: ID,
+    private _id: Id,
     private _createdAt: Date = new Date(),
     private _updatedAt: Date = new Date()
   ) {
     super();
   }
 
-  public id(): ID {
+  public id(): Id {
     return this._id;
   }
 

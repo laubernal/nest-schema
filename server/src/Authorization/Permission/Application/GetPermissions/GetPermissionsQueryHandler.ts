@@ -3,17 +3,16 @@ import { IQueryHandler, QueryHandler } from '@nestjs/cqrs';
 import { Permission } from 'Authorization/Permission/Domain/Entity/Permission';
 import { PermissionFilter } from 'Authorization/Permission/Domain/Filter/PermissionFilter';
 import { IPermissionRepository } from 'Authorization/Permission/Domain/Repository/IPermissionRepository';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { GetPermissionsQuery } from './GetPermissionsQuery';
 import { GetPermissionsResponse } from './GetPermissionsResponse';
 
 @QueryHandler(GetPermissionsQuery)
 export class GetPermissionsQueryHandler implements IQueryHandler {
-  constructor() // @Inject('IPermissionRepository') private readonly repository: IPermissionRepository
-  {}
+  constructor() {} // @Inject('IPermissionRepository') private readonly repository: IPermissionRepository
 
   public async execute(query: GetPermissionsQuery): Promise<GetPermissionsResponse[]> {
-    const tenantId = new ID(query.tenantId);
+    const tenantId = new Id(query.tenantId);
 
     // const permissions = await this.findPermissions(tenantId);
 

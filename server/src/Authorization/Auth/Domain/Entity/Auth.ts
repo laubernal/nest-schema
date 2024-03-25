@@ -1,24 +1,24 @@
-import { NotAuthorizedError } from "Authorization/Auth/Domain/Error/NotAuthorizedError";
-import { AggregateRoot } from "Shared/Domain/Entities/AggregateRoot";
-import { CryptoService } from "Shared/Domain/Services/CryptoService";
-import { Email } from "Shared/Domain/Vo/Email.vo";
-import { ID } from "Shared/Domain/Vo/Id.vo";
-import { Name } from "Shared/Domain/Vo/Name.vo";
-import { Password } from "Shared/Domain/Vo/Password.vo";
+import { NotAuthorizedError } from 'Authorization/Auth/Domain/Error/NotAuthorizedError';
+import { AggregateRoot } from 'Shared/Domain/Entities/AggregateRoot';
+import { CryptoService } from 'Shared/Domain/Services/CryptoService';
+import { Email } from 'Shared/Domain/Vo/Email.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
+import { Name } from 'Shared/Domain/Vo/Name.vo';
+import { Password } from 'Shared/Domain/Vo/Password.vo';
 
 export class Auth extends AggregateRoot {
   private _crypto: CryptoService = new CryptoService();
 
-  public static build(name: Name, email: Email, password: Password, roleId: ID): Auth {
-    return new Auth(ID.generate(), name, email, password, roleId);
+  public static build(name: Name, email: Email, password: Password, roleId: Id): Auth {
+    return new Auth(Id.generate(), name, email, password, roleId);
   }
 
   constructor(
-    _id: ID,
+    _id: Id,
     private _name: Name,
     private _email: Email,
     private _password: Password,
-    private _roleId: ID
+    private _roleId: Id
   ) {
     super(_id);
   }
@@ -30,7 +30,6 @@ export class Auth extends AggregateRoot {
       throw new NotAuthorizedError();
     }
   }
-
 
   public crypto(): CryptoService {
     return this._crypto;
@@ -48,7 +47,7 @@ export class Auth extends AggregateRoot {
     return this._password;
   }
 
-  public roleId(): ID {
+  public roleId(): Id {
     return this._roleId;
   }
 }

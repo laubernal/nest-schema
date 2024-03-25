@@ -1,7 +1,7 @@
 import { v4 as uuidV4, validate } from 'uuid';
 import { ValueObject } from './ValueObject';
 
-export class ID extends ValueObject {
+export class Id extends ValueObject {
   constructor(private _value: string) {
     super();
 
@@ -14,8 +14,8 @@ export class ID extends ValueObject {
     return this._value;
   }
 
-  static generate(): ID {
-    return new ID(uuidV4());
+  static generate(): Id {
+    return new Id(uuidV4());
   }
 
   protected validate(value: string): boolean {

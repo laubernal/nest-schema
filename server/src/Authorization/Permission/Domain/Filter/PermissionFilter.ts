@@ -1,5 +1,5 @@
 import { Filter } from 'Shared/Domain/Entities/Filter';
-import { ID } from 'Shared/Domain/Vo/Id.vo';
+import { Id } from 'Shared/Domain/Vo/Id.vo';
 import { Name } from 'Shared/Domain/Vo/Name.vo';
 
 export class PermissionFilter extends Filter {
@@ -13,12 +13,12 @@ export class PermissionFilter extends Filter {
 
   protected data: Map<string, any> = new Map();
 
-  public withTenantId(id: ID): this {
+  public withTenantId(id: Id): this {
     this.data.set(PermissionFilter.TENANT_ID_FILTER, id);
     return this;
   }
 
-  public withModuleId(id: ID): this {
+  public withModuleId(id: Id): this {
     this.data.set(PermissionFilter.MODULE_ID_FILTER, id);
     return this;
   }
